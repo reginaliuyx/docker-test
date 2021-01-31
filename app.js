@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 // Route handling - handling '/' request
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Hello Regina!'));
 app.get('/about', (req, res) => res.send('<h2>Testing Docker using Express</h2>'))
 
 // Server setup

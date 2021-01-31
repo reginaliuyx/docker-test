@@ -8,12 +8,12 @@ FROM node:latest
 WORKDIR /app
 # Copy files from the directory we are standing in, to the directory specified by the WORKDIR command
 COPY . .
-# 
+# Added this so we don't have static values like 'EXPOSE 3000', and we can refer to this value in app.js
 ENV PORT=3000
 # Runs a command in the terminal - here, we install all the libraries (listed under package.json > dependencies) we need to build our Node.js Express appl
 RUN npm install
 # Opening up the network port that this container should listen on at runtime - we communicate with our container on this port
-# Updated EXPOSE 3000 to EXPOSE $PORT - getting rid of static values and relying on variables
+# Updated 'EXPOSE 3000' to 'EXPOSE $PORT' - getting rid of static values and relying on variables
 EXPOSE $PORT
 # State how to start up our app, and needs to be specified as an array - here, this translates to 'node app.js' in the terminal
 ENTRYPOINT ["node", "app.js"]
