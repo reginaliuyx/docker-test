@@ -16,6 +16,6 @@ RUN npm install
 # Updated 'EXPOSE 3000' to 'EXPOSE $PORT' - getting rid of static values and relying on variables
 EXPOSE $PORT
 # State how to start up our app, and needs to be specified as an array - here, this translates to 'node app.js' in the terminal
-ENTRYPOINT ["node", "app.js"]
+ENTRYPOINT ["npm", "start"]
 
 # Whenever we change app.js, we need to 1. tear down our container (docker stop & dccker rm), 2. rebuild our image (docker build)
