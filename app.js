@@ -1,3 +1,16 @@
+const mysql = require('mysql');
+const con = mysql.createConnection({
+    host: "mysql",
+    user: "root",
+    password: "complexpassword",
+    database: 'Customer'
+});
+
+con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
+
 // Requiring the module
 const express = require('express');
 const app = express();
@@ -11,5 +24,6 @@ app.get('/docker', (req, res) => {
 app.get('/nodemon', (req, res) => res.send('hello from nodemon'));
 
 // Server setup
-const port = process.env.PORT;
+// const port = process.env.PORT;
+const port = 3000;
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
